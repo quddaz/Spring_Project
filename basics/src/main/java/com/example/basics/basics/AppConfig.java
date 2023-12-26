@@ -23,8 +23,6 @@ public class AppConfig {
   public OrderService orderService(){
     return  new OrderServiceImpl(memberRepository(),discountPolicy());
   }
-
-
   /**
    *MemberRepository 구현
    *
