@@ -1,10 +1,14 @@
 package com.example.basics.basics.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements  MemberService{
 
   //해당 코드는 추상화와 구체화 모두에게 의존하고 있다.
   private MemberRepository memberRepository;
-
+  @Autowired
   public MemberServiceImpl(MemberRepository memberRepository) {
     this.memberRepository = memberRepository;
   }
