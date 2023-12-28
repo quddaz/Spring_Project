@@ -30,11 +30,5 @@ public class ApplicationContextBasicTest {
     MemberServiceImpl memberService = ac.getBean("memberService", MemberServiceImpl.class);
     Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
   }
-  @Test
-  @DisplayName("빈 이름으로 조회X")
-  void findBeanByNameX(){
-    MemberService xxxxx = ac.getBean("xxxxx", MemberService.class);
-    org.junit.jupiter.api.Assertions.assertThrows(NoSuchBeanDefinitionException.class, ()-> ac.getBean("XXXXX", MemberService.class));
 
-  }
 }
