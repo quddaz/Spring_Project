@@ -3,48 +3,27 @@ package hello.servlet.web.frontController.v5;
 import hello.servlet.web.frontController.ModelView;
 import hello.servlet.web.frontController.MyHandlerAdapter;
 import hello.servlet.web.frontController.MyView;
-import hello.servlet.web.frontController.v3.ControllerV3;
-import hello.servlet.web.frontController.v3.MemberFormControllerV3;
-import hello.servlet.web.frontController.v3.MemberListControllerV3;
-import hello.servlet.web.frontController.v3.MemberSaveControllerV3;
-import hello.servlet.web.frontController.v4.MemberFormControllerV4;
-import hello.servlet.web.frontController.v4.MemberListControllerV4;
-import hello.servlet.web.frontController.v4.MemberSaveControllerV4;
-import hello.servlet.web.frontController.v5.Adapter.ControllerV3HandlerAdapter;
-import hello.servlet.web.frontController.v5.Adapter.ControllerV4HandlerAdapter;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @WebServlet(name = "frontControllerServletV5",urlPatterns = "/front-contrlloer/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
   //모든 컨트롤러 지원을 위해 Object형이다.
-  private final Map<String, Object> handlerMappingMap = new HashMap<>();
-  private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
-
-  public FrontControllerServletV5() {
-    initHandlerMappingMap();
-    initHandlerAdapters();
-  }
-  private void initHandlerMappingMap() {
-    handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
-    handlerMappingMap.put("/front-controller/v5/v3/members/save", new MemberSaveControllerV3());
-    handlerMappingMap.put("/front-controller/v5/v3/members", new MemberListControllerV3());
-    handlerMappingMap.put("/front-controller/v5/v4/members/new-form", new MemberFormControllerV4());
-    handlerMappingMap.put("/front-controller/v5/v4/members/save", new MemberSaveControllerV4());
-    handlerMappingMap.put("/front-controller/v5/v4/members", new MemberListControllerV4());
-  }
-  private void initHandlerAdapters() {
-    handlerAdapters.add(new ControllerV3HandlerAdapter());
-    handlerAdapters.add(new ControllerV4HandlerAdapter());
+  private final Map<String, Object> handlerMappingMap;
+  private final List<MyHandlerAdapter> handlerAdapters;
+  @Autowired
+  public FrontControllerServletV5(Map<String, Object> myHandlerController, List<MyHandlerAdapter> myHandlerAdapters) {
+    handlerMappingMap = myHandlerController;
+    handlerAdapters = myHandlerAdapters;
   }
 
   @Override
