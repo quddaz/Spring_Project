@@ -10,20 +10,23 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
-@WebServlet(name = "frontControllerServletV5",urlPatterns = "/front-contrlloer/v5/*")
+@WebServlet(name = "frontControllerServletV5",urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
   //모든 컨트롤러 지원을 위해 Object형이다.
   private final Map<String, Object> handlerMappingMap;
   private final List<MyHandlerAdapter> handlerAdapters;
+
   @Autowired
-  public FrontControllerServletV5(Map<String, Object> myHandlerController, List<MyHandlerAdapter> myHandlerAdapters) {
-    handlerMappingMap = myHandlerController;
-    handlerAdapters = myHandlerAdapters;
+  public FrontControllerServletV5(@Qualifier("handlerMappingMap") Map<String, Object> handlerMappingMap,@Qualifier("handlerAdapters") List<MyHandlerAdapter> handlerAdapters) {
+    this.handlerMappingMap = handlerMappingMap;
+    this.handlerAdapters = handlerAdapters;
   }
 
   @Override
