@@ -1,5 +1,6 @@
 package hello.SpringMVC.basic.request;
 
+import hello.SpringMVC.basic.HelloData;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -80,6 +81,18 @@ public class RequestParamController {
       @RequestParam(required = true) String username,
       @RequestParam(required = false) Integer age) {
     log.info("username={}, age={}", username, age);
+    return "ok";
+  }
+/**
+ * @ModelAttribute 사용
+ * 참고: model.addAttribute(helloData) 코드도 함께 자동 적용됨, 뒤에 model을 설명할 때 자세히
+ 설명
+ */
+  @ResponseBody
+  @RequestMapping("/model-attribute-v1")
+  public String modelAttributeV1(@ModelAttribute HelloData helloData) {
+    log.info("username={}, age={}", helloData.getUsername(),
+        helloData.getAge());
     return "ok";
   }
 }
