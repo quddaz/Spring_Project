@@ -5,6 +5,7 @@ import hello.itemservice.domain.Item;
 import hello.itemservice.repository.ItemRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/basic/items")
 @RequiredArgsConstructor
+@Slf4j
 public class BasicItemController {
   private final ItemRepository itemRepository;
 
@@ -37,7 +39,8 @@ public class BasicItemController {
     return "basic/addForm";
   }
   @PostMapping("/add")
-  public String save(@ModelAttribute Item item, RedirectAttributes redirectAttributes){
+  public String addItem(Item item, RedirectAttributes redirectAttributes) {
+    log.info("item.open={}", item.getOpen());
     Item savedItem = itemRepository.save(item);
     redirectAttributes.addAttribute("itemId", savedItem.getId());
     redirectAttributes.addAttribute("status", true);
