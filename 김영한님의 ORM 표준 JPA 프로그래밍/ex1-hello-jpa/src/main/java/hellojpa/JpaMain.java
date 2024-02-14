@@ -12,49 +12,16 @@ public class JpaMain {
         //code
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        /*
-        //저장
+
+        //수정
         try {
             Member member = new Member();
             member.setId(1L);
-            member.setName("helloA");
+            member.setName("회원1");
+            //1차 캐시에 저장됨
             em.persist(member);
-            tx.commit();
-        }catch (Exception e){
-            tx.rollback();
-        }finally {
-            em.close();
-        }
-        //조회
-        try {
-            Member findMember = em.find(Member.class, 1L);
-            System.out.println("findMember.id = "+ findMember.getId());
-            System.out.println("findMember.name =" + findMember.getName());
-
-            tx.commit();
-        }catch (Exception e){
-            tx.rollback();
-        }finally {
-            em.close();
-        }
-        //삭제
-        try {
-            Member findMember = em.find(Member.class, 1L);
-            em.remove(findMember);
-
-            tx.commit();
-        }catch (Exception e){
-            tx.rollback();
-        }finally {
-            em.close();
-        }
-
-         */
-        //수정
-        try {
-            Member findMember = em.find(Member.class, 1L);
-            findMember.setName("HelloJpa");
-
+            //1차 캐시에서 조회
+            Member findMember = em.find(Member.class, "member1");
             tx.commit();
         }catch (Exception e){
             tx.rollback();
