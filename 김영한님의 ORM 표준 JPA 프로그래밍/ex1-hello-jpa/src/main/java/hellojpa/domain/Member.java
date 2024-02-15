@@ -1,16 +1,17 @@
 package hellojpa.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class Member {
   @Id
+  @GeneratedValue()
+  @Column(name = "member_id")
   private Long id;
   private String name;
-
+  private String city;
+  private String street;
+  private String zipcode;
 }

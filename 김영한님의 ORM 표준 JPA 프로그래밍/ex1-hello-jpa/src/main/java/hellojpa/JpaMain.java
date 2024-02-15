@@ -16,12 +16,10 @@ public class JpaMain {
         //수정
         try {
             Member member = new Member();
-            member.setId(1L);
             member.setName("회원1");
             //1차 캐시에 저장됨
             em.persist(member);
             //1차 캐시에서 조회
-            Member findMember = em.find(Member.class, "member1");
             tx.commit();
         }catch (Exception e){
             tx.rollback();
