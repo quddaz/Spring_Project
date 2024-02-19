@@ -7,11 +7,12 @@ import lombok.Data;
 @Data
 public class Member {
   @Id
-  @GeneratedValue()
-  @Column(name = "member_id")
+  @GeneratedValue
   private Long id;
+  @Column(name = "USERNAME")
   private String name;
-  private String city;
-  private String street;
-  private String zipcode;
+  @ManyToOne(fetch = FetchType.LAZY) //**
+  @JoinColumn(name = "TEAM_ID")
+  private Team team;
 }
+

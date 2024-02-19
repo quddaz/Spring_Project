@@ -1,6 +1,8 @@
 package hellojpa;
 
+import hellojpa.domain.Child;
 import hellojpa.domain.Member;
+import hellojpa.domain.Parent;
 import jakarta.persistence.*;
 
 public class JpaMain {
@@ -15,11 +17,16 @@ public class JpaMain {
 
         //수정
         try {
-            Member member = new Member();
-            member.setName("회원1");
-            //1차 캐시에 저장됨
-            em.persist(member);
-            //1차 캐시에서 조회
+            Child child1 = new Child();
+            Child child2 = new Child();
+
+            Parent parent = new Parent();
+            parent.addChild(child1);
+            parent.addChild(child2);
+
+            em.persist(parent);
+
+
             tx.commit();
         }catch (Exception e){
             tx.rollback();
