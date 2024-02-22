@@ -3,6 +3,7 @@ package hellojpa;
 import hellojpa.domain.Child;
 import hellojpa.domain.Member;
 import hellojpa.domain.Parent;
+import hellojpa.domain.ValueType.Address;
 import jakarta.persistence.*;
 
 public class JpaMain {
@@ -17,14 +18,20 @@ public class JpaMain {
 
         //수정
         try {
-            Child child1 = new Child();
-            Child child2 = new Child();
+            Address address = new Address("city","street","10000");
+            Member member = new Member();
+            member.setName("member1");
+            member.setHomeAddress(address);
 
-            Parent parent = new Parent();
-            parent.addChild(child1);
-            parent.addChild(child2);
+            member.getFavoriteFoods().add("치킨");
+            member.getFavoriteFoods().add("족발");
+            member.getFavoriteFoods().add("피자");
 
-            em.persist(parent);
+            member.getAddressHistory().add(new Address("city","street","10000"));
+            member.getAddressHistory().add(new Address("city2","street2","10000"));
+
+            em.persist(member);
+
 
 
             tx.commit();
