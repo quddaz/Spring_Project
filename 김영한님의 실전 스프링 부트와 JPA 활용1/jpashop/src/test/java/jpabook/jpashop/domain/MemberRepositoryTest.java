@@ -1,11 +1,12 @@
-package jpabook.jpashop.Member;
+package jpabook.jpashop.domain;
 
 import jakarta.transaction.Transactional;
+import jpabook.jpashop.domain.member.Member;
+import jpabook.jpashop.domain.member.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 
 
 @SpringBootTest

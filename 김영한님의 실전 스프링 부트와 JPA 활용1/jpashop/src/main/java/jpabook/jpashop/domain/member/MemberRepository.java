@@ -1,7 +1,8 @@
-package jpabook.jpashop.Member;
+package jpabook.jpashop.domain.member;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jpabook.jpashop.domain.member.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 @Slf4j
