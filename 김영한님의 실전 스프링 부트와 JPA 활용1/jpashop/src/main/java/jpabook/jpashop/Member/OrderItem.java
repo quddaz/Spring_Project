@@ -1,8 +1,8 @@
-package jpabook.jpashop.domain;
+package jpabook.jpashop.Member;
 
 import jakarta.persistence.*;
-import jpabook.jpashop.domain.item.Item;
-import jpabook.jpashop.domain.order.Order;
+import jpabook.jpashop.Member.item.Item;
+import jpabook.jpashop.Member.order.Order;
 import lombok.Getter;
 import lombok.Setter;
 

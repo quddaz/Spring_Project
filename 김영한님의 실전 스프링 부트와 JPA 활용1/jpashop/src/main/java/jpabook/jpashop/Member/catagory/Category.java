@@ -1,7 +1,7 @@
-package jpabook.jpashop.domain.catagory;
+package jpabook.jpashop.Member.catagory;
 
 import jakarta.persistence.*;
-import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.Member.item.Item;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.ArrayList;
