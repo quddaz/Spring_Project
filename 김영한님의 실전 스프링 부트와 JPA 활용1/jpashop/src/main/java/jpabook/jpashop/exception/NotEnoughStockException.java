@@ -1,5 +1,5 @@
 package jpabook.jpashop.exception;
-
+//사용자 정의 오류 지정
 public class NotEnoughStockException extends RuntimeException{
   public NotEnoughStockException() {
   }
