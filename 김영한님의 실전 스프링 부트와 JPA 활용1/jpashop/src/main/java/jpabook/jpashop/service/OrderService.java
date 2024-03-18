@@ -1,12 +1,12 @@
 package jpabook.jpashop.service;
 
-import jpabook.jpashop.Member.OrderItem;
-import jpabook.jpashop.Member.item.Item;
-import jpabook.jpashop.Member.member.Member;
-import jpabook.jpashop.Member.order.Delivery;
-import jpabook.jpashop.Member.order.Enum.DeliveryStatus;
-import jpabook.jpashop.Member.order.Order;
-import jpabook.jpashop.Member.order.OrderSearch;
+import jpabook.jpashop.Domain.OrderItem.OrderItem;
+import jpabook.jpashop.Domain.item.Item;
+import jpabook.jpashop.Domain.member.Member;
+import jpabook.jpashop.Domain.order.Delivery;
+import jpabook.jpashop.Domain.order.Enum.DeliveryStatus;
+import jpabook.jpashop.Domain.order.Order;
+import jpabook.jpashop.Domain.order.OrderSearch;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
