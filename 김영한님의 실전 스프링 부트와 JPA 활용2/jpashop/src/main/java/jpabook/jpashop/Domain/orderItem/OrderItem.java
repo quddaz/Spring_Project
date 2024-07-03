@@ -1,4 +1,4 @@
-package jpabook.jpashop.Domain.OrderItem;
+package jpabook.jpashop.Domain.orderItem;
 
 import jakarta.persistence.*;
 import jpabook.jpashop.Domain.item.Item;
@@ -9,6 +9,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "order_Item")
 public class OrderItem {
   @Id
   @GeneratedValue
